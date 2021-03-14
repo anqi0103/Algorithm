@@ -14,6 +14,28 @@
 // LinkedList
 
 var addTwoNumbers = function(l1, l2) {
+  let dummy = new ListNode(0);
+  let node = dummy;
+  let carry = 0;
+ 
+  while (l1 || l2 || carry) {
+    if (l1) {
+      carry = carry + l1.val;
+      l1 = l1.next;
+    }
+   
+    if (l2) {
+      carry = carry + l2.val;
+      l2 = l2.next;
+    }
+    node.next = new ListNode(carry % 10);
+    carry = Math.floor(carry / 10);
+    node = node.next;   
+  }
+  return dummy.next;
+}
+
+var addTwoNumbers = function(l1, l2) {
     let dummy = new ListNode(0);
     let p1 = l1;
     let p2 = l2;
@@ -65,11 +87,11 @@ var addTwoNumbers = function(l1, l2) {
         }
     }
 };
-let l1 = new ListNode(2, new ListNode(4, new ListNode(3)));
+let l1 = new ListNode(2, new ListNode(4, new ListNode(6)));
 let l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
 
 let result = addTwoNumbers(l1, l2);
 console.log(result);
 
-// Time Complexity:
-// Space Complexity:
+// Time Complexity: O(max(m,n))
+// Space Complexity: O(max(m,n))
