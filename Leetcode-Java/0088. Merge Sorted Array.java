@@ -15,3 +15,8 @@ class Solution {
         }
     }
 }
+
+// 3 pointer Approach starting from the end of the array
+// Time Complexity: O(m + n);
+// Space Complexity: O(1); 
+// Save some space since I didn't use extra array
