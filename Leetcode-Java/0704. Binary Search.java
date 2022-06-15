@@ -27,13 +27,18 @@ class Solution {
         return bsearch(nums, target, 0, nums.length - 1);
     }
     public int bsearch(int[] nums, int target, int left, int right) {
+        // Exit point
         if (right < left) {
             return -1;
         }
+        
+        // main logic
         int pivot = left + (right - left) / 2;
         if (nums[pivot] == target) {
             return pivot;
         }
+        
+        // Instead of chaging the variable, chaging the input/arguments and passing it to the base function
         if (nums[pivot] > target) {
             return bsearch(nums, target, left, pivot - 1);
         } else {
